@@ -54,12 +54,3 @@ async function copyTextToClipboard(getPass) {
       console.error('Error in copying text: ', err);
   }
 }
-/*
-function copyPassword() {
-  var copyPass = document.getElementById("password");
-  copyPass.select();
-  copyPass.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyPass.value);
-  alert("Password copied to clipboard!");
-}
-*/

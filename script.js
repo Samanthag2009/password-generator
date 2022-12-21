@@ -20,10 +20,17 @@ var charGen = {
   numbers: '0123456789',
   symbols: '!@#$%^&*()-_=+',
 };
-var charSet = charGen[charType.toLowerCase()] ;
+
+var charTypes = charType.toLowerCase().split(', ');
+
+var charSet = "";
+for(var i=0; i < charTypes.length; i++) {
+  charSet += charGen[charTypes[i]];
+}
+
 var retVal = "";
-for (i = 0; i < length; i++) {
- retVal += charSet.charAt(Math.floor(Math.random() * charGen.length));
+for (var i = 0; i < length; i++) {
+ retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
 }
 return retVal;
   }

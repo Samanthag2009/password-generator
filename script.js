@@ -41,8 +41,25 @@ passwordText.value = password();
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-function copyPassword() {
-  document.getElementById("password").select();
-  navigator.clipboard.writeText(copyText.value);
-  alert("Password copied to clipboard!" + copyText.value);
+document.getElementById("password").onclick = function() {
+  var getPass = document.getElementById("password").value;
+  copyTextToClipboard(getPass);
 }
+
+async function copyTextToClipboard(getPass) {
+  try {
+      await navigator.clipboard.writeText(getPass);
+      alert('Text copied to clipboard');
+  } catch (err) {
+      console.error('Error in copying text: ', err);
+  }
+}
+/*
+function copyPassword() {
+  var copyPass = document.getElementById("password");
+  copyPass.select();
+  copyPass.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyPass.value);
+  alert("Password copied to clipboard!");
+}
+*/
